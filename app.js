@@ -8,11 +8,23 @@ let requestUnixTime
 
 
 app.use(function logMiddlewareInfo(req, res, next) {
+  // handle request message
   requestUnixTime = Date.now()
   const requestTime = new Date(requestUnixTime).toLocaleString('zh-TW')
   const method = req.method
   const url = req.originalUrl
   console.log(`${requestTime} | ${method} from ${url}`)
+
+  // handle server response message
+  res.on('finish', () => {
+    const method = res.req.method
+    const url = res.req.originalUrl
+    const responseUnixTime = Date.now()
+    const responseTime = new Date(responseUnixTime).toLocaleString('zh-TW')
+    const handleDuration = responseUnixTime - requestUnixTime
+
+    console.log(`${responseTime} | ${method} from ${url} | total time: ${handleDuration}ms`)
+  })
 
   next()
 })
