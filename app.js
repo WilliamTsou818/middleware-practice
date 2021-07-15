@@ -4,6 +4,11 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const app = express()
 const port = 3000
+
+// view engine setting
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
+
 let requestUnixTime
 
 
@@ -31,19 +36,19 @@ app.use(function logMiddlewareInfo(req, res, next) {
 
 
 app.get('/', (req, res) => {
-  res.send('列出全部 Todo')
+  res.render('index')
 })
 
 app.get('/new', (req, res) => {
-  res.send('新增 Todo 頁面')
+  res.render('index')
 })
 
 app.get('/:id', (req, res) => {
-  res.send('顯示一筆 Todo')
+  res.render('index')
 })
 
 app.post('/', (req, res) => {
-  res.send('新增一筆  Todo')
+  res.render('index')
 })
 
 app.listen(port, () => {
