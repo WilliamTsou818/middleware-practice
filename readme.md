@@ -1,4 +1,5 @@
 # Middleware 中介軟體練習
+
 本專案的目的是實作出一個中介軟體，顯示出伺服器接收請求的時間、伺服器送出請求的時間和處理花費時間，並藉由實作的過程理解整個 request-response cycle 的流程。
 
 <br>
@@ -45,8 +46,7 @@ https://github.com/WilliamTsou818/middleware-practice.git
 
 ```
 cd middleware-practice
-npm i express
-npm i nodemon
+npm install
 ```
 
 3. 執行本專案
@@ -54,3 +54,7 @@ npm i nodemon
 ```
 npm run dev
 ```
+
+4. 跳出下列訊息時，表示專案啟動成功
+
+Server is running on http://localhost:3000

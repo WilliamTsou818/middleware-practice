@@ -46,5 +46,5 @@ app.post('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`App running on http://localhost:3000`)
+  console.log(`Server is running on http://localhost:3000`)
 })
